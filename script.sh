@@ -56,7 +56,7 @@ sleep 5
 interact' >> bluetooth_step1.sh
 sleep 1
 sudo chmod +x bluetooth_step1.sh
-x-terminal-emulator --title "Bluetooth Program: Step 1" -e ./bluetooth_step1.sh & child=$!
+lxterminal --title "Bluetooth Program: Step 1" -e ./bluetooth_step1.sh & child=$!
 let "child++"
 echo -e "A new window will have just opened and is now scanning for your device\n"
 echo -e "It may take a few seconds for your device to be found when it is it'll show the device name and a sequence of characters that look something like this:\n"
@@ -94,7 +94,7 @@ send "info\r"
 interact' >> bluetooth_step1.sh
 sleep 1
 sudo chmod +x bluetooth_step1.sh
-x-terminal-emulator --title "Bluetooth Program: Step 1" -e ./bluetooth_step1.sh & child=$!
+lxterminal --title "Bluetooth Program: Step 1" -e ./bluetooth_step1.sh & child=$!
 let "child++"
 echo -e "A new window will have just opened and has listed the device you just connected using the gui\n"
 echo -e "It will now show a bunch of information we simply want the text on the first line next to 'Device' which looks something like this:\n"
@@ -157,7 +157,7 @@ arrMAC=(\${MAC//:/ })
 pacmd set-card-profile bluez_card.\${arrMAC[0]}_\${arrMAC[1]}_\${arrMAC[2]}_\${arrMAC[3]}_\${arrMAC[4]}_\${arrMAC[5]} a2dp_sink
 pacmd set-default-sink bluez_sink.\${arrMAC[0]}_\${arrMAC[1]}_\${arrMAC[2]}_\${arrMAC[3]}_\${arrMAC[4]}_\${arrMAC[5]}.a2dp_sink
 echo -e 'WOW Your device is now connected opening volume control...\n'
-x-terminal-emulator --command='alsamixer' --geometry=20x20
+lxterminal --command='alsamixer' --geometry=20x20
 " >> "$NAME connect.sh"
 sleep 2
 sudo chmod +x "$NAME connect.sh"
